@@ -1,11 +1,10 @@
 import requests
 
-def creatQrCode(text, width, height):
+def create_qr_code(text, width, height):
     url = f"http://api.qrserver.com/v1/create-qr-code/?data={text}!&size={width}x{height}"
     response = requests.get(url)
-    with open("qrCode.png", "wb") as f:
-        f.write(response.content)
+    return response.content
 
 
 if __name__ == "__main__":
-    creatQrCode("Hello World", 200, 200)
+    create_qr_code("Hello World", 200, 200)
